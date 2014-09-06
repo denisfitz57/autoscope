@@ -9,10 +9,10 @@
      padding: 5px 10px;
 }
 
-<<<<<<< HEAD
 .header-container .brand {
-     font-family: Audiowide, Arial
-=======
+     font-family: Audiowide, Arial;
+}
+
 a {
   color: #00B7FF;
 }
@@ -24,12 +24,11 @@ a {
     opacity:0.8;
     left: 190px;
     bottom: 230px;
->>>>>>> 05b2d183783d0789019e16a23e17d96379bf80bd
 }
 
 .main-container {
     position: absolute;
-    top: 30px;
+    top: 0px;
     left: 0px;
     right: 0px;
     bottom: 0px;
@@ -56,8 +55,7 @@ a {
     height: 100%;
     width: 100%;
 }
-<<<<<<< HEAD
-=======
+
 .gmnoprint div {
     background:none !important;
 }
@@ -81,4 +79,3 @@ a {
   margin-left: 41%;
   text-align: center;
 }
->>>>>>> 05b2d183783d0789019e16a23e17d96379bf80bd
