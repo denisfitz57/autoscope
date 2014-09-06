@@ -1,36 +1,44 @@
-html, body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-  height: 100%;
-  margin: 0;
-  padding: 0;
+.header-container {
+     position: absolute;
+     top: 0;
+     left: 0;
+     right: 0;
+     height: 20px;
+     background: black;
+     color: white;
+     padding: 5px 10px;
 }
 
-a {
-  color: #00B7FF;
-}
-
-#map-canvas {
-    position:absolute;
-    width:320px;
-    height: 270px;
-    opacity:0.3;
+.header-container .brand {
+     font-family: Audiowide, Arial
 }
 
 .main-container {
-    height:100%;
+    position: absolute;
+    top: 30px;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
 }
 
-#dronestream {
-    width: 1440px;
-    height: 820px;
+#controls {
+    float: right;
 }
 
-a[href^="http://maps.google.com/maps"]{display:none !important}
+#glasspane {
+        position: absolute;
+        left: 0px;
+        right: 0px;
+        top: 0px;
+        bottom: 0px;
+        z-index: 100;
 
-.gmnoprint a, .gmnoprint span {
-    display:none;
+    -webkit-user-select: none; // webkit (safari, chrome) browsers
+    -moz-user-select: none; // mozilla browsers
+    -khtml-user-select: none; // webkit (konqueror) browsers
 }
-.gmnoprint div {
-    background:none !important;
+
+#cockpit {
+    height: 100%;
+    width: 100%;
 }

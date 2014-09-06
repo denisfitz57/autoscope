@@ -1,13 +1,33 @@
 {
-  "name": "dronestream-example",
-  "version": "0.1.1",
+  "name": "drone-oculus-vr",
+  "version": "0.0.1",
+  "description": "Parrot drone with Oculus VR integration for 3rd person.",
+  "main": "app.js",
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "keywords": [
+    "drone",
+    "ardrone",
+    "nodecopter",
+    "parrot",
+    "cockpit",
+    "browser",
+    "artificial horizon"
+  ],
   "dependencies": {
+    "ar-drone": "0.3.1",
     "express": "3.0.x",
-    "jade": "*"
+    "ejs": "~0.8.3",
+    "socket.io": "~0.9.4",
+    "dronestream": "1.1.1",
+    "dateformat": "~1.0.6-1.2.3",
+    "line-reader": "~0.2.3",
+    "buffered-reader": "~1.0.1"
   },
-  "scripts": {
-    "start": "node app"
-  },
-  "author": "Bernhard K. Weisshuhn <bkw@codingforce.com>",
-  "license": "BSD"
+  "author": "Logan Allen, Henry Boldiszar, Chen Ye",
+  "contributors": [
+  ],
+  "license": "MIT"
 }
