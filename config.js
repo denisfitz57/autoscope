@@ -3,7 +3,6 @@ var config = {
             "video-stream"  // Display the video as a native h264 stream decoded in JS 
           //, "hud"           // Display the artificial horizon, altimeter, compass, etc.
           , "tracker"
-          , "oculus"
         ],
 
         // Config for pilot plugin
