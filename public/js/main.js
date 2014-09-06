@@ -4,27 +4,30 @@ var markArr = [];
 function initialize() {
 
     function panToPosition(position) {
-        var lat = position.coords.latitude;
-        var lng = position.coords.longitude;
+        //var lat = position.coords.latitude;
+        //var lng = position.coords.longitude;
 
         for (var marker in markArr) {
             markArr[marker].setMap(null);
         }
         markArr = [];
 
-        var marker = new google.maps.Marker({
+        /*var marker = new google.maps.Marker({
             position: new google.maps.LatLng(lat, lng),
             title: "",
             map: map
         });
 
         map.panTo(marker.getPosition());
-        markArr.push(marker);
+        markArr.push(marker);*/
         var copterStream = new NodecopterStream(document.querySelector('#dronestream'));
+        console.log("copterStream");
+        console.log(copterStream);
+        window.copter = copterStream;
     }
 
     function onPositionUpdate(position) {
-        var lat = position.coords.latitude;
+        /*var lat = position.coords.latitude;
         var lng = position.coords.longitude;
 
         var midnightCommanderStyle = 
@@ -37,16 +40,20 @@ function initialize() {
             styles: midnightCommanderStyle
         };
 
-        map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
+        map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);*/
     }
 
     setInterval(function(e) {
         if (navigator.geolocation) {
-            navigator.geolocation.getCurrentPosition(panToPosition);
+            //navigator.geolocation.getCurrentPosition(panToPosition);
         }
     }, 5000);
 
     if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(onPositionUpdate);
+        //navigator.geolocation.getCurrentPosition(onPositionUpdate);
     }
+    
+    var copterStream = new NodecopterStream(document.querySelector('#dronestream'));
+    console.log("copterStream");
+    console.log(copterStream);
 }
