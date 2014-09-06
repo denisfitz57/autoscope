@@ -12,9 +12,11 @@ a {
 
 #map-canvas {
     position:absolute;
-    width:320px;
-    height: 270px;
-    opacity:0.3;
+    width: 230px;
+    height: 230px;
+    opacity:0.8;
+    left: 190px;
+    bottom: 230px;
 }
 
 .main-container {
@@ -33,4 +35,24 @@ a[href^="http://maps.google.com/maps"]{display:none !important}
 }
 .gmnoprint div {
     background:none !important;
+}
+
+#wifi-bar {
+  position: fixed;
+  bottom: 230px;
+  right: 190px;
+}
+
+#time-bar {
+  position: fixed;
+  bottom: 230px;
+  right: 270px;
+}
+
+#location-bar {
+  position: fixed;
+  bottom: 230px;
+  display: block;
+  margin-left: 41%;
+  text-align: center;
 }
