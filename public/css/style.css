@@ -1,0 +1,36 @@
+html, body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  color: #00B7FF;
+}
+
+#map-canvas {
+    position:absolute;
+    width:320px;
+    height: 270px;
+    opacity:0.3;
+}
+
+.main-container {
+    height:100%;
+}
+
+#dronestream {
+    width: 1440px;
+    height: 820px;
+}
+
+a[href^="http://maps.google.com/maps"]{display:none !important}
+
+.gmnoprint a, .gmnoprint span {
+    display:none;
+}
+.gmnoprint div {
+    background:none !important;
+}

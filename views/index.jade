@@ -1,0 +1,15 @@
+extends layout
+
+block append head
+  script(type="text/javascript", src="/js/nodecopter-client.js")
+  script(type="text/javascript", src="/js/vr.js")
+  script(type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyClGKomUcD0dxd4GPbTvhQLrjUypFIg0cI")
+  script(type="text/javascript", src="/js/main.js")
+
+block append bodyscripts
+  script.
+    google.maps.event.addDomListener(window, 'load', initialize);
+
+block content
+  div#map-canvas
+  div#dronestream(width=1440, height=800)
