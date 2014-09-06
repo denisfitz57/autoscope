@@ -9,8 +9,22 @@
      padding: 5px 10px;
 }
 
+<<<<<<< HEAD
 .header-container .brand {
      font-family: Audiowide, Arial
+=======
+a {
+  color: #00B7FF;
+}
+
+#map-canvas {
+    position:absolute;
+    width: 230px;
+    height: 230px;
+    opacity:0.8;
+    left: 190px;
+    bottom: 230px;
+>>>>>>> 05b2d183783d0789019e16a23e17d96379bf80bd
 }
 
 .main-container {
@@ -42,3 +56,29 @@
     height: 100%;
     width: 100%;
 }
+<<<<<<< HEAD
+=======
+.gmnoprint div {
+    background:none !important;
+}
+
+#wifi-bar {
+  position: fixed;
+  bottom: 230px;
+  right: 190px;
+}
+
+#time-bar {
+  position: fixed;
+  bottom: 230px;
+  right: 270px;
+}
+
+#location-bar {
+  position: fixed;
+  bottom: 230px;
+  display: block;
+  margin-left: 41%;
+  text-align: center;
+}
+>>>>>>> 05b2d183783d0789019e16a23e17d96379bf80bd
