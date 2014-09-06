@@ -18,18 +18,11 @@
   <script type="text/javascript" src="/js/jquery.fullscreen-min.js"></script>
   <script type="text/javascript" src="/js/polyfills.js"></script>
   <script type="text/javascript" src="/js/cockpit.js"></script>
-  <script type="text/javascript" src="/js/jquery.notifyBar.js"></script>
+  <!--<script type="text/javascript" src="/js/jquery.notifyBar.js"></script>!-->
   <% for(var i=0; i<scripts.length; i++) {%>
   <script type="text/javascript" src="<%= scripts[i] %>"></script><% } %>
 
   <body>
-    <div class="header-container">
-      <span id="controls">
-      </span>
-      <header class="wrapper clearfix">
-        <span class="brand">WebFlight</span>
-      </header>
-    </div>
     <div class="main-container">
       <div class="main wrapper clearfix">
         <div id="glasspane">
@@ -37,10 +30,6 @@
           </div>
         </div>
       </div>
-    </div>
-    <div class="footer-container">
-      <footer class="wrapper">
-      </footer>
     </div>
     <script>
       var cockpit = new Cockpit();
