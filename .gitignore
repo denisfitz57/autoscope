@@ -1,2 +1,3 @@
 
 node_modules/ws/build/binding.Makefile
+*.db
