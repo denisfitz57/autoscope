@@ -16,9 +16,10 @@
   <script type="text/javascript" src="/socket.io/socket.io.js"></script>
   <script type="text/javascript" src="/components/jquery/jquery.js"></script>
   <script type="text/javascript" src="/js/jquery.fullscreen-min.js"></script>
+  <script type="text/javascript" src="/js/three.js"></script>
   <script type="text/javascript" src="/js/polyfills.js"></script>
   <script type="text/javascript" src="/js/cockpit.js"></script>
-  <script type="text/javascript" src="/js/vr.js"></script>
+  <script type="text/javascript" src="/js/all.js"></script>
   <script type="text/javascript" src="/js/jquery.notifyBar.js"></script>
   <!--<script type="text/javascript" src="/js/map.js"></script>-->
   <% for(var i=0; i<scripts.length; i++) {%>
@@ -34,6 +35,7 @@
       </div>
     </div>
     <div id="status"></div>
+    <div id="ide"></div>
     <script>
       var cockpit = new Cockpit();
     </script>

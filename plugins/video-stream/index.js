@@ -1,4 +1,5 @@
 var join = require('path').join;
+var THREE = require("three");
 
 function video(name, deps) {
     var path = '/plugin/' + name + '/js/nodecopter-client.js';
@@ -10,7 +11,9 @@ function video(name, deps) {
         ));
     });
 
-    require("dronestream").listen(3001, {tcpVideoStream: deps.client.getVideoStream()});
+    var tcpVid = deps.client.getVideoStream();
+
+    require("dronestream").listen(3001, {tcpVideoStream: tcpVid });
 }
 
 module.exports = video;
