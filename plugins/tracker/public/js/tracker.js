@@ -206,6 +206,16 @@
                             parseFloat(this.normSpeed) * Math.abs(this.oldXY[0] - this.newXY[1]) / 20);
             }
         }
+        
+        if (Math.abs(this.newXY[1] - (180)) > 40) {
+            if (this.newXY[1] < 140) {
+                sendCommand(this, "move", "up",
+                            parseFloat(this.normSpeed) * Math.abs(this.oldXY[0] - this.newXY[1]) / 20);
+            } else {
+                sendCommand(this, "move", "down",
+                            parseFloat(this.normSpeed) * Math.abs(this.oldXY[0] - this.newXY[1]) / 20);
+            }
+        }
 
         var me = this;
         setTimeout(function() {
@@ -254,7 +264,6 @@
 
     Tracker.prototype.hookNextFrame = function () {
         this.cockpit.videostream.onNextFrame(this.update.bind(this));
-
     };
 
     window.Cockpit.plugins.push(Tracker);
