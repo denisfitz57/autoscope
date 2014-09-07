@@ -1,3 +1,6 @@
+var map;
+var markArr = [];
+
 function panToPosition(position) {
     var lat = position.coords.latitude;
     var lng = position.coords.longitude;
@@ -7,10 +10,16 @@ function panToPosition(position) {
     }
     markArr = [];
 
+    var markerImage = {
+        url: 'img/Map Marker-01.png',
+        anchor: new google.maps.Point(24,30)
+    }
+
     var marker = new google.maps.Marker({
         position: new google.maps.LatLng(lat, lng),
         title: "",
-        map: map
+        map: map,
+        icon: markerImage
     });
 
     map.panTo(marker.getPosition());

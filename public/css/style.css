@@ -23,7 +23,6 @@ a {
     height: 230px;
     opacity:0.8;
     left: 190px;
-    bottom: 230px;
 }
 
 .main-container {
@@ -62,20 +61,29 @@ a {
 
 #wifi-bar {
   position: fixed;
-  bottom: 230px;
   right: 190px;
 }
 
 #time-bar {
   position: fixed;
-  bottom: 230px;
   right: 270px;
 }
 
 #location-bar {
-  position: fixed;
-  bottom: 230px;
   display: block;
-  margin-left: 41%;
+  margin-left: 170%;
   text-align: center;
+}
+
+#location-indicator {
+  position: fixed;
+  right: 45%;
+  left: 45%;
+  top: 45%;
+  bottom: 45%
+}
+
+.bottom {
+  position: fixed;
+  bottom: 20%
 }

@@ -20,6 +20,7 @@
   <script type="text/javascript" src="/js/cockpit.js"></script>
   <script type="text/javascript" src="/js/vr.js"></script>
   <script type="text/javascript" src="/js/jquery.notifyBar.js"></script>
+  <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyClGKomUcD0dxd4GPbTvhQLrjUypFIg0cI"></script>
   <script type="text/javascript" src="/js/map.js"></script>
   <% for(var i=0; i<scripts.length; i++) {%>
   <script type="text/javascript" src="<%= scripts[i] %>"></script><% } %>
@@ -29,6 +30,16 @@
       <div class="main wrapper clearfix">
         <div id="glasspane">
           <div id="cockpit">
+            <div id="hud-overlay">
+              <div class="bottom" id="bottom-bar">
+                <img src="/img/Wifi Bar-01.png" id="wifi-bar">
+                <img src="/img/Time Bar-01.png" id="time-bar">
+                <img src="/img/Location Bar-01.png" id="location-bar">
+              </div>
+              <div class="bottom" id="map-canvas">
+                <!-- <img src="/img/Map Marker-01.png" id="location indicator">! -->
+              </div>
+            </div>
           </div>
         </div>
       </div>
