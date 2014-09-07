@@ -94,7 +94,7 @@ a {
 
 h2 { 
   position: absolute;
-  top: -17px;
+  top: -16px;
   /* margin: -50px; */
   left: 0;
   width: 310px;
@@ -102,9 +102,7 @@ h2 {
 
 h2 span { 
    color: white; 
-   font: bold 24px/45px 'Code Bold', Helvetica, Sans-Serif; 
-   letter-spacing: -1px;  
-   background: rgb(0, 0, 0); /* fallback color */
-   background: rgba(0, 0, 0, 0.7);
+   font: bold 24px/45px 'Code Pro Demo', Helvetica, Sans-Serif; 
+   letter-spacing: -1px;
    padding: 10px; 
 }
