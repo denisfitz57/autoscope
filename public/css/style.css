@@ -105,9 +105,23 @@ h2 {
   text-align: center;
 }
 
+#win-count {
+  width: 85px;
+  text-align: center;
+}
+
 h2 span { 
    color: white; 
    font: bold 24px/45px 'Code Pro Demo', Helvetica, Sans-Serif; 
    letter-spacing: -1px;
    padding: 10px; 
+}
+
+#the-svg { 
+ position: fixed;
+  right: 195px;
+  bottom: 20%;
+  margin-bottom: 15px;
+  fill: #fff;
+  z-index: 9999999999;
 }
