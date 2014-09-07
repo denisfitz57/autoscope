@@ -37,11 +37,11 @@
                 <img src="/img/Wifi Bar-01.png" id="wifi-bar"></div>
               <div id="time-bar" class="image">
                 <img src="/img/Time-Bar.gif">
-                <h2 id="time"><span>12:34 AM</span></h2>
+                <h2 id="time"><span style="display: none;">12:34 AM</span></h2>
               </div>
               <div id="location-bar" class="image">
                 <img src="/img/Location-Bar.gif">
-                <h2><span>Ann Arbor, MI</span></h2>
+                <h2><span style="display: none;">Ann Arbor, MI</span></h2>
               </div>
             </div>
             <div class="bottom" id="map-canvas">
@@ -57,12 +57,12 @@
   <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
   <script type="text/javascript">
   $(document).ready(
-    setTimeout(
-      function() 
-      {
-        $('#location-bar h2 span').fadeIn();
-        
-      }, 1000)
+    setTimeout( function() {
+      $('#location-bar h2 span').fadeIn(); 
+    }, 1000),
+    setTimeout( function() {
+      $('#time-bar h2 span').fadeIn(); 
+    }, 2000)
   );
   function updateClock ( )
     {
