@@ -1,9 +1,26 @@
 (function(window, document) {
     'use strict';
 
+    function eventFire(el, etype){
+        if (el.fireEvent) {
+            el.fireEvent('on' + etype);
+        } else {
+            var evObj = document.createEvent('Events');
+            evObj.initEvent(etype, true, false);
+            el.dispatchEvent(evObj);
+        }
+    }
+
     var Tracker = function Tracker(cockpit) {
         var tracker = this;
         console.log('Loading Tracker plugin');
+        this.currKeys = [];
+        this.normSpeed = "0.03";
+        this.fastSpeed = "0.05";
+
+        var socket = new io.Socket('localhost');
+        socket.connect();
+
         this.cockpit = cockpit;
 
         this.frameWidth = 640;
@@ -144,12 +161,67 @@
             this.oldPyramid, this.newPyramid,
             this.oldXY, this.newXY,
             1,
-            50,                // win_size
+            40,                // win_size
             30,                // max_iterations
             this.point_status,
             0.01,              // epsilon,
             0.001              // min_eigen
         );
+
+        if (Math.abs(this.newXY[0] - (320)) > 60) {
+            if (this.newXY[0] > 380) {
+                this.currKeys.push({
+                    action: "clockwise",
+                    speed: this.normSpeed
+                });
+                this.currKeys.push({
+                    action: "left",
+                    speed: this.fastSpeed
+                });
+            } else {
+                this.currKeys.push({
+                    action: "counterClockwise",
+                    speed: this.normSpeed
+                });
+                this.currKeys.push({
+                    action: "right",
+                    speed: this.fastSpeed
+                });
+            }
+        }
+
+        if (Math.abs(this.newXY[1] - (180)) > 60) {
+            if (this.newXY[1] > 60) {
+                this.currKeys.push({
+                    action: "up",
+                    speed: this.normSpeed
+                });
+            } else {
+                this.currKeys.push({
+                    action: "down",
+                    speed: this.normSpeed
+                });
+            }
+        }
+
+        var length = this.currKeys.length;
+        for (var x = length-1; x >= 0; x--) {
+            this.cockpit.socket.emit("/pilot/move", {
+                action : this.currKeys[x].action,
+                speed : this.currKeys[x].speed
+            });
+            
+            this.currKeys.pop();
+        }
+
+        //this.cockpit.socket.emit("/pilot/calibrate", {
+        //    device_num : 0
+        //});
+
+        this.cockpit.socket.emit("/pilot/drone", {
+            action : "stop"
+        });
+        
     };
 
     Tracker.prototype.enable = function () {
