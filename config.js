@@ -2,8 +2,8 @@ var config = {
         plugins: [
             "video-stream"  // Display the video as a native h264 stream decoded in JS 
           //, "hud"           // Display the artificial horizon, altimeter, compass, etc.
-          , "tracker"
           , "pilot"
+          , "tracker"
         ],
 
         // Config for pilot plugin

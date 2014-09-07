@@ -11,14 +11,14 @@
         }
     }
 
-    function sendCommand(type, action, speed) {
+    function sendCommand(self, type, action, speed) {
         if (type !== "drone") {
-            this.cockpit.socket.emit("/pilot/" + type, {
+            self.cockpit.socket.emit("/pilot/" + type, {
                 action : action,
                 speed : speed
             });
         } else {
-            this.cockpit.socket.emit("/pilot/" + type, {
+            self.cockpit.socket.emit("/pilot/" + type, {
                 action : action
             });
         }
@@ -28,9 +28,9 @@
         var tracker = this;
         console.log('Loading Tracker plugin');
 
-        this.slowSpeed = "0.02";
-        this.normSpeed = "0.035";
-        this.fastSpeed = "0.05";
+        this.slowSpeed = 2;
+        this.normSpeed = 3;
+        this.fastSpeed = 5;
 
         var socket = new io.Socket('localhost');
         socket.connect();
@@ -182,33 +182,34 @@
             0.001              // min_eigen
         );
 
-        function rotate() {
-            if (Math.abs(this.newXY[0] - (320)) > 60) {
-                if (this.newXY[0] > 380) {
-                    sendCommand("move", "clockwise", this.normSpeed);
-                    sendCommand("move", "left", this.fastSpeed);
-                } else {
-                    sendCommand("move", "counterClockwise", this.normSpeed);
-                    sendCommand("move", "right", this.fastSpeed);
-                }
-            }
-        }
-        
-        function elevate() {
-            if (Math.abs(this.newXY[1] - (180)) > 40) {
-                if (this.newXY[1] < 140) {
-                    sendCommand("move", "up", this.normSpeed);
-                } else {
-                    sendCommand("move", "down", this.normSpeed);
-                }
-            }
-        }
-        
-        rotate();
-        elevate();
 
+        if (Math.abs(this.newXY[0] - (320)) > 60) {
+            if (this.newXY[0] > 380) {
+                sendCommand(this, "move", "clockwise",
+                            parseFloat(this.slowSpeed) * Math.abs(this.oldXY[0] - this.newXY[0]) / 20);
+                sendCommand(this, "move", "left",
+                            parseFloat(this.fastSpeed) * Math.abs(this.oldXY[0] - this.newXY[0]) / 20);
+            } else {
+                sendCommand(this, "move", "counterClockwise",
+                            parseFloat(this.slowSpeed) * Math.abs(this.oldXY[0] - this.newXY[0]) / 20);
+                sendCommand(this, "move", "right",
+                            parseFloat(this.fastSpeed) * Math.abs(this.oldXY[0] - this.newXY[0]) / 20);
+            }
+        }
+
+        if (Math.abs(this.newXY[1] - (180)) > 40) {
+            if (this.newXY[1] < 140) {
+                sendCommand(this, "move", "up",
+                            parseFloat(this.normSpeed) * Math.abs(this.oldXY[0] - this.newXY[1]) / 20);
+            } else {
+                sendCommand(this, "move", "down",
+                            parseFloat(this.normSpeed) * Math.abs(this.oldXY[0] - this.newXY[1]) / 20);
+            }
+        }
+
+        var me = this;
         setTimeout(function() {
-            sendCommand("drone", "stop");
+                sendCommand(me, "drone", "stop");
         }, 80);
 
     };
