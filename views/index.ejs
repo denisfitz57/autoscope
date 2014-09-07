@@ -35,17 +35,18 @@
             <div class="bottom" id="bottom-bar">
               <div id="location-bar-div" class="image">
                 <img src="/img/Wifi Bar-01.png" id="wifi-bar"></div>
-              <div id="location-bar-div" class="image">
-                <img src="/img/Time Bar-01.png" id="time-bar"></div>
+              <div id="time-bar" class="image">
+                <img src="/img/Time-Bar.gif">
+                <h2 id="time"><span>12:34 AM</span></h2>
+              </div>
               <div id="location-bar" class="image">
                 <img src="/img/Location-Bar.gif">
                 <h2><span>Ann Arbor, MI</span></h2>
               </div>
-                
-
             </div>
             <div class="bottom" id="map-canvas">
-              <!-- <img src="/img/Map Marker-01.png" id="location indicator">! --></div>
+                <img src="/img/Map-Animation.gif">
+              </div>
           </div>
         </div>
       </div>
@@ -53,5 +54,48 @@
   </div>
   <div id="status"></div>
   <script>var cockpit = new Cockpit();</script>
+  <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+  <script type="text/javascript">
+  $(document).ready(
+    setTimeout(
+      function() 
+      {
+        $('#location-bar h2 span').fadeIn();
+        
+      }, 1000)
+  );
+  function updateClock ( )
+    {
+    var currentTime = new Date ( );
+    var currentHours = currentTime.getHours ( );
+    var currentMinutes = currentTime.getMinutes ( );
+    var currentSeconds = currentTime.getSeconds ( );
+ 
+    // Pad the minutes and seconds with leading zeros, if required
+    currentMinutes = ( currentMinutes < 10 ? "0" : "" ) + currentMinutes;
+    currentSeconds = ( currentSeconds < 10 ? "0" : "" ) + currentSeconds;
+ 
+    // Choose either "AM" or "PM" as appropriate
+    var timeOfDay = ( currentHours < 12 ) ? "AM" : "PM";
+ 
+    // Convert the hours component to 12-hour format if needed
+    currentHours = ( currentHours > 12 ) ? currentHours - 12 : currentHours;
+ 
+    // Convert an hours component of "0" to "12"
+    currentHours = ( currentHours == 0 ) ? 12 : currentHours;
+ 
+    // Compose the string for display
+    var currentTimeString = currentHours + ":" + currentMinutes + ":" + currentSeconds + " " + timeOfDay;
+     
+     
+    $("#time span").html(currentTimeString);
+         
+ }
+ 
+$(document).ready(function()
+{
+   setInterval('updateClock()', 1000);
+});
+  </script>
 </body>
 </html>
