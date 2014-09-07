@@ -100,6 +100,11 @@ h2 {
   width: 310px;
 }
 
+#time {
+  width: 192px;
+  text-align: center;
+}
+
 h2 span { 
    color: white; 
    font: bold 24px/45px 'Code Pro Demo', Helvetica, Sans-Serif; 
