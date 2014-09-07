@@ -5,8 +5,9 @@ var Video = function Video(cockpit) {
     var video = this;
 
     // Add some UI elements
-    var cp = document.querySelector("#cockpit");
-    cp.append('<div id="oculus-stream"><div id="oculus-left" class="oculus-eye"></div><div id="oculus-right" class="oculus-eye"></div></div>');
+    var cp = document.querySelector("#glasspane");
+    
+    cp.innerHTML = cp.innerHTML + '<div id="oculus-stream"><div id="oculus-left" class="oculus-eye"></div><div id="oculus-right" class="oculus-eye"></div></div>';
 
     // Start the stream
 
@@ -29,7 +30,6 @@ var Video = function Video(cockpit) {
     };
     $videoBuffer.remove();
     return processFrame();
-
 
 };
 
